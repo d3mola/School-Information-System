@@ -19,12 +19,17 @@ var StudentSchema = new Schema({
     type: Number,
     required: "Please enter the student's cgpa"
   },
+  matricNo: {
+    type: Number,
+    required: "Please enter the student's matric number",
+    unique: true
+  },
   created_date: {
     type: Date,
     default: Date.now
   },
   updated_date: {
-    type: Date,
+    type: Date
   },
 });
 
