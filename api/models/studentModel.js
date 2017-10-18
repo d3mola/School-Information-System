@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-var StudentSchema = new Schema({
+const StudentSchema = new Schema({
   name: {
     type: String,
     required: 'Please enter the student\'s name'
