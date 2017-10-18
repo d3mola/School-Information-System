@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-// import Student from './api/models/studentModel'; // created model loading here
+import Student from './api/models/studentModel'; // created model loading here
 import routes from './api/routes/studentRoute'; // importing route
 
 // Create/ Set-up an express app
