@@ -1,14 +1,14 @@
+// import mongoose from 'mongoose';
+// const Student = mongoose.model('Student');
+
+import Student from '../models/studentModel';
+
 /**
- * list_all_students..get
- * create_a_student..post
- * update_a_student_info..update
- * delete_a_student..delete
+ * Get all students
+ * @param {object} req The request object
+ * @param {*} res The response object
+ * @returns {Student} all students
  */
-
-import mongoose from 'mongoose';
-
-const Student = mongoose.model('Student');
-
 const listAllStudents = (req, res) => {
   Student.find({}, (err, student) => {
     if (err) {
@@ -18,6 +18,12 @@ const listAllStudents = (req, res) => {
   });
 };
 
+/**
+ * Create new student
+ * @param {object} req
+ * @param {object} res
+ * @returns {Student} Student object
+ */
 const createAStudent = (req, res) => {
   const newStudent = new Student(req.body);
   newStudent.save((err, student) => {
