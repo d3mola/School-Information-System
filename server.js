@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-import Student from './api/models/studentModel'; // created model loading here
+// import Student from './api/models/studentModel'; // created model loading here
 import routes from './api/routes/studentRoute'; // importing route
 
 // Create/ Set-up an express app
@@ -10,7 +10,10 @@ const port = process.env.PORT || 3000;
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://demola:demola2@ds119355.mlab.com:19355/school-info-db');
+// 'mongodb://127.0.0.1/my_database'
+mongoose.connect('mongodb://demola:demola2@ds119355.mlab.com:19355/school-info-db', {
+  useMongoClient: true
+});
 
 // Parse body of incoming requests
 app.use(bodyParser.urlencoded({ extended: true }));
