@@ -1,6 +1,3 @@
-// import mongoose from 'mongoose';
-// const Student = mongoose.model('Student');
-
 import Student from '../models/studentModel';
 
 /**
@@ -56,4 +53,3 @@ const deleteAStudent = (req, res) => {
 };
 
 export { listAllStudents, createAStudent, updateAStudentInfo, deleteAStudent };
-

@@ -1,8 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-// import Student from './api/models/studentModel'; // created model loading here
-import routes from './api/routes/studentRoute'; // importing route
+import routes from './api/routes/studentRoute'; // importing routes
 
 // Create/ Set-up an express app
 const app = express();
@@ -10,7 +9,7 @@ const port = process.env.PORT || 3000;
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-// 'mongodb://127.0.0.1/my_database'
+// local db eg 'mongodb://127.0.0.1/my_database'
 mongoose.connect('mongodb://demola:demola2@ds119355.mlab.com:19355/school-info-db', {
   useMongoClient: true
 });
@@ -21,7 +20,7 @@ app.use(bodyParser.json());
 
 
 // Routes go here
-// test route
+// simple test route
 app.get('/', (req, res) => {
   res.send('Welcome to my app');
   // res.sendFile(`${__dirname}/index.html`);
@@ -29,8 +28,8 @@ app.get('/', (req, res) => {
 });
 
 // imported routes registered here
-routes(app);
+app.use('/api', routes);
 
 app.listen(port, () => {
-  console.log(`Server Listening on port ${port}...`);
+  console.log(`Server listening to requests on port ${port}...`);
 });
