@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import logger from 'morgan';
 import mongoose from 'mongoose';
 import routes from './api/routes/studentRoute'; // importing routes
 
@@ -13,6 +14,9 @@ mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://127.0.0.1/school-info-system', {
   useMongoClient: true
 });
+
+// Log requests to the console
+app.use(logger('dev'));
 
 // Parse body of incoming requests
 app.use(bodyParser.urlencoded({ extended: true }));
