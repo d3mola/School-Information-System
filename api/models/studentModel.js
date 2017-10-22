@@ -1,8 +1,9 @@
 import mongoose from 'mongoose';
 
-const Schema = mongoose.Schema;
-
-const StudentSchema = new Schema({
+/**
+ * Student Schema
+ */
+const StudentSchema = new mongoose.Schema({
   name: {
     type: String,
     required: 'Please enter the student\'s name'
@@ -24,15 +25,14 @@ const StudentSchema = new Schema({
     required: "Please enter the student's matric number",
     unique: true
   },
-  created_date: {
+  createdAt: {
     type: Date,
     default: Date.now
   },
-  updated_date: {
+  updatedAt: {
     type: Date
-  },
+  }
 });
 
-const Student = mongoose.model('Student', StudentSchema);
-
-export default Student;
+// create model and export
+export default mongoose.model('Student', StudentSchema);

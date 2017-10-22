@@ -1,41 +1,18 @@
-module.exports = function (app) {
-  const studentController = require('../controllers/studentController');
+import express from 'express';
+import { listAllStudents, createAStudent, updateAStudentInfo, deleteAStudent } from '../controllers/studentController';
 
-  // student routes
-  app.route('/api/students')
-    .get(studentController.listAllStudents)
-    .post(studentController.createAStudent);
-  // .delete(studentController.delete_a_student)
-  // .put(studentController.update_a_student)
+const router = express.Router();
 
-
-  app.route('/api/students/:studentId')
-  // .get(studentController.list_a_student)
-    .put(studentController.updateAStudentInfo)
-    .delete(studentController.deleteAStudent);
-};
+// student routes
+router
+  .get('/students', listAllStudents)
+  .post('/students', createAStudent);
+// .delete(deleteAllStudents)
 
 
-/**
- * es6 syntax.. have problems with importing and exporting
- *
-import { list_all_students, create_a_student, update_a_student, delete_a_student } from '../controllers/studentController';
+router
+  // .get(getAStudent)
+  .put('/students/:studentId', updateAStudentInfo)
+  .delete('/students/:studentId', deleteAStudent);
 
-const studentController = app => {
-  // student routes
-  app.route('/api/students')
-  .get(list_all_students.list_all_students)
-  .post(studentController.create_a_student)
-  //.delete(studentController.delete_a_student)
-  //.put(studentController.update_a_student)
-
-
-  app.route('/api/students/:studentId')
-  //.get(studentController.list_a_student)
-  .put(studentController.update_a_student_info)
-  .delete(studentController.delete_a_student)
-}
-
-
-export default studentController;
-*/
+export default router;
