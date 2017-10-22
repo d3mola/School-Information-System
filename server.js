@@ -1,8 +1,13 @@
+/* eslint-disable no-console */
+import dotenv from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
 import mongoose from 'mongoose';
 import routes from './api/routes/studentRoute'; // importing routes
+
+// load .env file
+dotenv.load();
 
 // Create/ Set-up an express app
 const app = express();
