@@ -9,8 +9,8 @@ const port = process.env.PORT || 3000;
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-// local db eg 'mongodb://127.0.0.1/my_database'
-mongoose.connect('mongodb://demola:demola2@ds119355.mlab.com:19355/school-info-db', {
+// local db eg 'mongodb://127.0.0.1/my_database''mongodb://demola:demola2@ds119355.mlab.com:19355/school-info-db'
+mongoose.connect('mongodb://127.0.0.1/school-info-system', {
   useMongoClient: true
 });
 
