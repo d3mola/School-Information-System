@@ -24,7 +24,7 @@ mongoose.connect('mongodb://127.0.0.1/school-info-system', {
 app.use(logger('dev'));
 
 // Parse body of incoming requests
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
