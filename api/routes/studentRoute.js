@@ -1,5 +1,5 @@
 import express from 'express';
-import { listAllStudents, createAStudent, updateAStudentInfo, deleteAStudent } from '../controllers/studentController';
+import { listAllStudents, getAStudent, createAStudent, updateAStudentInfo, deleteAStudent } from '../controllers/studentController';
 
 const router = express.Router();
 
@@ -11,7 +11,7 @@ router
 
 
 router
-  // .get(getAStudent)
+  .get('/students/:studentId', getAStudent)
   .put('/students/:studentId', updateAStudentInfo)
   .delete('/students/:studentId', deleteAStudent);
 
