@@ -7,9 +7,18 @@ import Student from '../models/studentModel';
  * @returns {Student} all students
  */
 const listAllStudents = (req, res) => {
-  Student.find({}, (err, student) => {
+  Student.find({}, (err, students) => {
     if (err) {
       res.send(err);
+    }
+    res.json(students);
+  });
+};
+
+const getAStudent = (req, res) => {
+  Student.findById({ _id: req.params.studentId }, (err, student) => {
+    if (err) {
+      res.send(err.toString());
     }
     res.json(student);
   });
@@ -22,7 +31,7 @@ const listAllStudents = (req, res) => {
  * @returns {Student} Student object
  */
 const createAStudent = (req, res) => {
-  const newStudent = new Student(req.body);
+  const newStudent = new Student(req.body); // create an instance of the Student model
   newStudent.save((err, student) => {
     if (err) {
       res.send(err);
@@ -52,4 +61,4 @@ const deleteAStudent = (req, res) => {
   });
 };
 
-export { listAllStudents, createAStudent, updateAStudentInfo, deleteAStudent };
+export { listAllStudents, getAStudent, createAStudent, updateAStudentInfo, deleteAStudent };
