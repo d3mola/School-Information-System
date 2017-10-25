@@ -40,8 +40,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // simple test route
 app.get('/', (req, res) => {
   // res.send('Welcome to my app');
-  // res.sendFile(`${__dirname}/index.html`);
-  res.render('test', { title: 'School Management System' });
+  res.sendFile(`${__dirname}/index.html`);
+  // res.render('test', { title: 'School Management System' });
   console.log('Working as expected!');
 });
 
