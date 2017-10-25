@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import logger from 'morgan';
 import path from 'path';
 import mongoose from 'mongoose';
+
 import routes from './api/routes/studentRoute'; // importing routes
 
 // load .env file
@@ -38,8 +39,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes go here
 // simple test route
 app.get('/', (req, res) => {
-  res.send('Welcome to my app');
+  // res.send('Welcome to my app');
   // res.sendFile(`${__dirname}/index.html`);
+  res.render('test', { title: 'School Management System' });
   console.log('Working as expected!');
 });
 
