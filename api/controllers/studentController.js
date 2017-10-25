@@ -11,7 +11,8 @@ const listAllStudents = (req, res) => {
     if (err) {
       res.send(err);
     }
-    res.json(students);
+    // res.json(students);
+    res.render('test', { title: 'School Management System', students });
   });
 };
 
