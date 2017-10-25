@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  h3 Hello! Welcome to #{title}
+  h4 #{student.name}'s profile
+  .student
+    ul
+      li Name: #{student.name}
+      li Age: #{student.age}
+      li Department: #{student.department}
+      li CGPA: #{student.cgpa}
+      li MatricNo: #{student.matricNo}

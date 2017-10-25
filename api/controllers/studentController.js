@@ -21,7 +21,8 @@ const getAStudent = (req, res) => {
     if (err) {
       res.send(err.toString());
     }
-    res.json(student);
+    // res.json(student);
+    res.render('onestudent.pug', { title: 'School Management System', student });
   });
 };
 
