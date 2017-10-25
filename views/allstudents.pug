@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  p Hello! Welcome to #{title}
+  ul
+    each student in students
+      li #{student.name +' '+ student.age +' '+ student.department +' '+ student.cgpa +' '+ student.matricNo}
+      br

@@ -12,7 +12,7 @@ const listAllStudents = (req, res) => {
       res.send(err);
     }
     // res.json(students);
-    res.render('test', { title: 'School Management System', students });
+    res.render('allstudents', { title: 'School Management System', students });
   });
 };
 
