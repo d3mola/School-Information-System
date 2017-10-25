@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
+import path from 'path';
 import mongoose from 'mongoose';
 import routes from './api/routes/studentRoute'; // importing routes
 
@@ -27,6 +28,7 @@ app.use(logger('dev'));
 // Parse body of incoming requests
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Routes go here
