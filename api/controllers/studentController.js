@@ -36,9 +36,11 @@ const createAStudent = (req, res) => {
   const newStudent = new Student(req.body); // create an instance of the Student model
   newStudent.save((err, student) => {
     if (err) {
-      res.send(err);
+      res.send(err.toString());
     }
-    res.json(student);
+    console.log(student);
+    res.redirect('/api/students');
+    // res.json(student);
   });
 };
 
