@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+    .container
+      form(method="POST" action="/api/students")
+        input(type="text" placeholder="name" name="name")
+        br
+        input(type="text" placeholder="age" name="age")
+        br
+        input(type="text" placeholder="department" name="department")
+        br
+        input(type="text" placeholder="cgpa" name="cgpa")
+        br
+        input(type="text" placeholder="matric number" name="matricNo")
+        br
+        button(type="submit") Submit
