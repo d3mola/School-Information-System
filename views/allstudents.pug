@@ -1,9 +1,35 @@
 extends layout
 
 block content
-  h1= title
-  p Hello! Welcome to #{title}
+  .container
+    .jumbotron
+      h1(class="text-center")= title
+      p(class="text-center") Hello! Welcome to #{title}
   ul
     each student in students
       li #{student.name +' '+ student.age +' '+ student.department +' '+ student.cgpa +' '+ student.matricNo}
+      button#deletebtn(type="button" class="btn btn-danger btn-sm")
+        i.fa.fa-trash-o    Delete
+      button#updatebtn(type="button" class="btn btn-primary btn-sm")
+        i.fa.fa-edit    Edit
       br
+      br
+  h3(class="text-center") Add Student
+  .container
+    form(method="POST" action="/api/students")
+      div.form-group
+        label(for='name') Name:
+        input(class="form-control" type="text" placeholder="name" name="name")
+      div.form-group
+        label(for='age') Age:
+        input(class="form-control" type="text" placeholder="age" name="age")
+      div.form-group
+        label(for='department') Department:
+        input(class="form-control" type="text" placeholder="department" name="department")
+      div.form-group
+        label(for='cgpa') Cgpa:
+        input(class="form-control" type="text" placeholder="cgpa" name="cgpa")
+      div.form-group
+        label(for='matricNo') Matric No:
+        input(class="form-control" type="text" placeholder="matric number" name="matricNo")
+      button(type="submit" class="btn btn-primary") Submit
