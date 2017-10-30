@@ -1,5 +1,13 @@
 body {
     padding: 5em;
-    font-family: monospace;
-    line-height: 1.5
+    font-family: /*'Quicksand',*/ monospace;
+    line-height: 1.5;
+    /*color: white;*/
+    /*background-color: #16534e*/
+}
+
+#deletebtn,
+#updatebtn {
+    display: inline-block;
+    vertical-align: top;
 }
