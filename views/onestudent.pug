@@ -1,13 +1,24 @@
 extends layout
 
 block content
-  h1= title
-  h3 Hello! Welcome to #{title}
-  h4 #{student.name}'s profile
-  .student
-    ul
+  h3.text-center #{student.name}'s profile
+  .student.jumbotron
+    ul.one-student
       li Name: #{student.name}
+      hr
       li Age: #{student.age}
+      hr
       li Department: #{student.department}
+      hr
       li CGPA: #{student.cgpa}
+      hr
       li MatricNo: #{student.matricNo}
+      hr
+      a.btn.btn-default(href='/api/student/edit/'+student._id)
+        i.fa.fa-edit  Edit
+      //input.btn.btn-danger(href='/api/students/'+student._id)
+      //  i.fa.fa-trash  Delete
+      form(action="/api/students/"+student._id+"?_method=DELETE", method="POST")
+        input.btn.btn-danger(type="submit", value="Delete")
+        // input.form-control(type="hidden", name="studentId", value=student._id)
+      // input.btn.btn-danger(type="submit", value="Delete")
