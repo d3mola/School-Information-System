@@ -1,0 +1,23 @@
+extends layout
+
+block content
+
+  h3.text-center Add Student
+  .container
+    form(method="POST" action="/api/students")
+      div.form-group
+        label(for='name') Name:
+        input(class="form-control" type="text" placeholder="name" name="name")
+      div.form-group
+        label(for='age') Age:
+        input(class="form-control" type="text" placeholder="age" name="age")
+      div.form-group
+        label(for='department') Department:
+        input(class="form-control" type="text" placeholder="department" name="department")
+      div.form-group
+        label(for='cgpa') Cgpa:
+        input(class="form-control" type="text" placeholder="cgpa" name="cgpa")
+      div.form-group
+        label(for='matricNo') Matric No:
+        input(class="form-control" type="text" placeholder="matric number" name="matricNo")
+      input.btn.btn-primary(type="submit", value="Submit")

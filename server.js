@@ -3,7 +3,10 @@ import dotenv from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
+import path from 'path';
 import mongoose from 'mongoose';
+import methodOverride from 'method-override';
+
 import routes from './api/routes/studentRoute'; // importing routes
 
 // load .env file
@@ -21,19 +24,28 @@ mongoose.connect('mongodb://127.0.0.1/school-info-system', {
 }).then(() => console.log('connected to db'))
   .catch(err => console.log(err));
 
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
 // Log requests to the console
 app.use(logger('dev'));
 
 // Parse body of incoming requests
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'public')));
+
+// method-override
+app.use(methodOverride('_method'));
 
 
 // Routes go here
 // simple test route
 app.get('/', (req, res) => {
-  res.send('Welcome to my app');
-  // res.sendFile(`${__dirname}/index.html`);
+  // res.send('Welcome to my app');
+  res.sendFile(`${__dirname}/index.html`);
+  // res.render('test', { title: 'School Management System' });
   console.log('Working as expected!');
 });
 
