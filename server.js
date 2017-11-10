@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import logger from 'morgan';
 import path from 'path';
 import mongoose from 'mongoose';
+import methodOverride from 'method-override';
 
 import routes from './api/routes/studentRoute'; // importing routes
 
@@ -34,6 +35,9 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// method-override
+app.use(methodOverride('_method'));
 
 
 // Routes go here
