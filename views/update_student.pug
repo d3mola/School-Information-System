@@ -1,0 +1,23 @@
+extends layout
+
+block content
+
+  h3.text-center Edit Student
+  .container
+    form(method="POST" action="/api/students/"+student._id+"?_method=PUT")
+      div.form-group
+        label Name:
+        input.form-control(type="text" name="name" value=student.name)
+      div.form-group
+        label Age:
+        input.form-control(type="text" name="age" value=student.age)
+      div.form-group
+        label Department:
+        input.form-control(type="text" name="department" value=student.department)
+      div.form-group
+        label Cgpa:
+        input.form-control(type="text" name="cgpa" value=student.cgpa)
+      div.form-group
+        label Matric No:
+        input.form-control(type="text" name="matricNo" value=student.matricNo)
+      input.btn.btn-primary(type="submit", value="Submit")
